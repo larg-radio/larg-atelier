@@ -34,7 +34,32 @@ Pour une installation du server:
 /root/install_rivendell.sh --standalone
 ```
 
+Pour une installation d'un client:
+
+```bash
+/root/install_rivendell.sh --client
+```
+
+Pour valider la connection du client avec le server:
+
+Récupérer l'IP du IP_CLIENT_RIVENDELL
+```bash
+ip -c a
+```
+Puis connecter vous a la DB de Rivendell
+
+```bash
+ssh rd@IP_SERVER_RIVENDELL
+mysql -uroot Rivendell
+
+GRANT ALL PRIVILEGES ON *.* TO 'rduser'@'IP_CLIENT_RIVENDELL' IDENTIFIED BY 'letmein' WITH GRANT OPTION;
+```
+
 a noter que vous devez changer le mot de pass aprés installation
+
+```bash
+passwd rd
+```
 
 Supprimez le script d'installation avec :
 
